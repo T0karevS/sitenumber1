@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +9,10 @@
     <link rel="stylesheet" href="assets/css/mycss.css">
 </head>
 <body>
-<form action="connect/signup.php" method="post" enctype="multipart/form-data">
+<fieldset>
+    <legend align="center">Регистрация</legend>
+    <form action="connect/signup.php" method="post" enctype="multipart/form-data">
+
     <label>ФИО</label>
     <input type="text" name="fullname" placeholder="Введите свое полное ФИО">
     <label>Login</label>
@@ -14,18 +20,25 @@
     <label>Email</label>
     <input type="email" name="email" placeholder="Введите свой Email">
     <label>Изображение профиля</label>
-    <input type="file" name="file" placeholder="Ваше фото профиля">
+    <input type="file" name="avatar" placeholder="Ваше фото профиля">
     <label>password</label>
     <input type="password" name="password" placeholder="Введите свой пароль">
     <label>confirm password</label>
     <input type="password" name="password_c" placeholder="Подтвердите свой пароль">
     <button>Зарегистрироваться</button>
     <p>Уже есть аккаунт? - <a href="index.php">Войти</a></p>
-    <p class="msg">
-        какое-то сообщение
-    </p>
-</form>
 
+        <?php
+        if($_SESSION['message']){
+            echo '<p class="msg">' . $_SESSION['message'] . '</p>';
+        }
+        unset($_SESSION['message']);
+        ?>
+
+
+
+</form>
+</fieldset>
 
 </body>
 </html>
