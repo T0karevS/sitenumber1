@@ -13,10 +13,10 @@ else
 {
     $user = mysqli_fetch_assoc($check_user);
     $_SESSION['user'] = [
-        "id"=>$user['id'],
-        "fullname"=>$user['fullname'],
+        "id"=>$user['user_id'],
+        "fullname"=>$user['fio'],
         "avatar"=>$user['Avatar'],
-        "email"=>$user['email']
+        "email"=>$user['Email']
     ];
     header('location: ../stranica.php');
 }
